@@ -8,6 +8,20 @@
       "when": 1749112712365,
       "tag": "0000_dry_dagger",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1749123475190,
+      "tag": "0001_marvelous_longshot",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1749123504505,
+      "tag": "0002_conscious_black_queen",
+      "breakpoints": true
     }
   ]
 }

@@ -1,0 +1,240 @@
+{
+  "info": {
+    "_postman_id": "3f3219a1-fa8d-4548-80f2-431e20705ac0",
+    "name": "fsd final node s2",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "17445780"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "username",
+              "value": "testtest",
+              "type": "text"
+            },
+            {
+              "key": "email",
+              "value": "test@test.com",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "testtest1!",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "localhost:3000/auth/register",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "email",
+              "value": "test@test.com",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "testtest1!",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "localhost:3000/auth/login",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Logout",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:3000/auth/logout",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "auth",
+            "logout"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Book",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "title",
+              "value": "title",
+              "type": "text"
+            },
+            {
+              "key": "author",
+              "value": "author",
+              "type": "text"
+            },
+            {
+              "key": "category_id",
+              "value": "c3504486-ed89-4376-b0e9-70e406d5de18",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "localhost:3000/books/",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "books",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Category",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "name",
+              "value": "roman",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "localhost:3000/categories/",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "categories",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Borrowing",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "user_id",
+              "value": "61d49ff1-1b16-4915-98a9-64705f09db92",
+              "type": "text"
+            },
+            {
+              "key": "book_id",
+              "value": "577a9faa-8537-443b-86e5-b6a66846397a",
+              "type": "text"
+            },
+            {
+              "key": "borrow_date",
+              "value": "2025-06-05",
+              "type": "text"
+            },
+            {
+              "key": "return_date",
+              "value": "2025-06-12",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "localhost:3000/borrowings/",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "borrowings",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getAll Books",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": []
+        },
+        "url": {
+          "raw": "localhost:3000/books/",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "books",
+            ""
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

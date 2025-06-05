@@ -1,5 +1,19 @@
 # Sujet de TP Final : Création d'une API RESTful en TS
 
+## Comment installer et lancer le projet
+
+il faut d'abord avoir une database postgresql nommé "library" et un utilisateur
+avec les droits de lecture et d'écriture.
+
+```bash
+npm install
+npm run dev
+```
+
+screenshots de la database depuis drizzle studio: ![image](drizzle-studio.png)
+
+y'a aussi la collection postman dans le dossier postman
+
 ## Objectif
 
 Votre objectif est de **créer** une API RESTful. Vous devrez cependant appliquer
