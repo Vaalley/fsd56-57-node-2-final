@@ -2,7 +2,7 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import { requestLogger } from "./middlewares/requestLogger";
+import { requestLogger } from "./middlewares/requestLogger.middleware";
 import router from "./routes";
 import { env } from "./config/env";
 

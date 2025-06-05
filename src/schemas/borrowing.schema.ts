@@ -1,7 +1,7 @@
 import { pgTable, uuid, varchar } from "drizzle-orm/pg-core";
 
-import { users } from "./user.model";
-import { books } from "./book.model";
+import { users } from "./user.schema";
+import { books } from "./book.schema";
 
 export const borrowings = pgTable("borrowings", {
   id: uuid("id").defaultRandom().primaryKey(),

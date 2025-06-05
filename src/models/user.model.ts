@@ -1,8 +1,94 @@
-import { pgTable, uuid, varchar } from "drizzle-orm/pg-core";
+import { eq } from "drizzle-orm";
+import { db } from "../config/pool";
+import logger from "../utils/logger";
 
-export const users = pgTable("users", {
-  id: uuid("id").defaultRandom().primaryKey(),
-  email: varchar("email", { length: 255 }).notNull().unique(),
-  username: varchar("username", { length: 255 }).notNull().unique(),
-  password: varchar("password", { length: 255 }).notNull(),
-});
+import { users } from "../schemas";
+import { NewUser } from "../entities/user.entity";
+
+export const userModel = {
+  getAll: () => {
+    try {
+      return db.select({
+        id: users.id,
+        username: users.username,
+      }).from(users);
+    } catch (err: any) {
+      logger.error(
+        `Erreur lors de la récupération des utilisateurs; ${err.message}`,
+      );
+      throw new Error("Impossible de récupérer les utilisateurs");
+    }
+  },
+  get: (id: string) => {
+    try {
+      return db.query.users.findFirst({
+        where: eq(users.id, id),
+        columns: {
+          id: true,
+          username: true,
+        },
+        with: {
+          borrowings: {
+            columns: {
+              id: true,
+              user_id: true,
+              book_id: true,
+              borrow_date: true,
+              return_date: true,
+            },
+            with: {
+              books: {
+                columns: {
+                  id: true,
+                  title: true,
+                  category_id: true,
+                },
+                with: {
+                  categories: {
+                    columns: {
+                      id: true,
+                      name: true,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      });
+    } catch (err: any) {
+      logger.error(
+        `Erreur lors de la récupération de l'utilisateur; ${err.message}`,
+      );
+      throw new Error("Impossible de récupérer l'utilisateur");
+    }
+  },
+  findByCredentials: (email: string) => {
+    try {
+      return db.select({
+        id: users.id,
+        password: users.password,
+        username: users.username,
+        email: users.email,
+      }).from(users)
+        .where(
+          eq(users.email, email),
+        );
+    } catch (err: any) {
+      logger.error(
+        `Erreur lors de la récupération de l'utilisateur; ${err.message}`,
+      );
+      throw new Error("Impossible de récupérer l'utilisateur");
+    }
+  },
+  create: (user: NewUser) => {
+    try {
+      return db.insert(users).values(user).returning({ id: users.id });
+    } catch (err: any) {
+      logger.error(
+        `Erreur lors de la création de l'utilisateur; ${err.message}`,
+      );
+      throw new Error("Impossible de créer l'utilisateur");
+    }
+  },
+};
