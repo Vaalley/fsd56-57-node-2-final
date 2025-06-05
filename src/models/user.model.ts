@@ -91,4 +91,24 @@ export const userModel = {
       throw new Error("Impossible de créer l'utilisateur");
     }
   },
+  update: (id: string, user: NewUser) => {
+    try {
+      return db.update(users).set(user).where(eq(users.id, id));
+    } catch (err: any) {
+      logger.error(
+        `Erreur lors de la mise à jour de l'utilisateur; ${err.message}`,
+      );
+      throw new Error("Impossible de mettre à jour l'utilisateur");
+    }
+  },
+  delete: (id: string) => {
+    try {
+      return db.delete(users).where(eq(users.id, id));
+    } catch (err: any) {
+      logger.error(
+        `Erreur lors de la suppression de l'utilisateur; ${err.message}`,
+      );
+      throw new Error("Impossible de supprimer l'utilisateur");
+    }
+  },
 };
