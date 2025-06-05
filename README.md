@@ -10,6 +10,8 @@ npm install
 npm run dev
 ```
 
+n'oubliez pas de remplir votre .env
+
 screenshots de la database depuis drizzle studio: ![image](drizzle-studio.png)
 
 y'a aussi la collection postman dans le dossier postman
