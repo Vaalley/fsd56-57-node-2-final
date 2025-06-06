@@ -4,6 +4,7 @@ import { bookModel } from "../models/book.model";
 import { APIResponse } from "../utils/apiResponse";
 import logger from "../utils/logger";
 import { NewBook } from "../entities/book.entity";
+import { bookValidation } from "../validations";
 
 const bookController = {
   getAll: async (request: Request, response: Response) => {
@@ -31,7 +32,7 @@ const bookController = {
   },
   create: async (request: Request, response: Response) => {
     try {
-      const book: NewBook = request.body;
+      const book: NewBook = bookValidation.parse(request.body);
       const newBook = await bookModel.create(book);
       return APIResponse(response, newBook, "Livre créé", 201);
     } catch (err: any) {
@@ -42,7 +43,7 @@ const bookController = {
   update: async (request: Request, response: Response) => {
     try {
       const { id } = request.params;
-      const book: NewBook = request.body;
+      const book: NewBook = bookValidation.parse(request.body);
       const updatedBook = await bookModel.update(id, book);
       return APIResponse(response, updatedBook, "Livre mis à jour", 200);
     } catch (err: any) {

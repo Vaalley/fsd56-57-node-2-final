@@ -3,6 +3,7 @@ import { APIResponse } from "../utils/apiResponse";
 import logger from "../utils/logger";
 import { categoryModel } from "../models/category.model";
 import { NewCategory } from "../entities/category.entity";
+import { categoryValidation } from "../validations";
 
 const categoryController = {
   getAll: async (request: Request, response: Response) => {
@@ -35,7 +36,7 @@ const categoryController = {
   },
   create: async (request: Request, response: Response) => {
     try {
-      const category: NewCategory = request.body;
+      const category: NewCategory = categoryValidation.parse(request.body);
       const newCategory = await categoryModel.create(category);
       return APIResponse(response, newCategory, "Catégorie créée", 201);
     } catch (err: any) {
@@ -48,7 +49,7 @@ const categoryController = {
   update: async (request: Request, response: Response) => {
     try {
       const { id } = request.params;
-      const category: NewCategory = request.body;
+      const category: NewCategory = categoryValidation.parse(request.body);
       const updatedCategory = await categoryModel.update(id, category);
       return APIResponse(
         response,
