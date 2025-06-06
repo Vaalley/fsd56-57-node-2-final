@@ -6,8 +6,8 @@ il faut d'abord avoir une database postgresql nommé "library" et un utilisateur
 avec les droits de lecture et d'écriture.
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 n'oubliez pas de remplir votre .env
@@ -15,6 +15,12 @@ n'oubliez pas de remplir votre .env
 screenshots de la database depuis drizzle studio: ![image](drizzle-studio.png)
 
 y'a aussi la collection postman dans le dossier postman
+
+to migrate the database:
+
+```bash
+pnpm migrate
+```
 
 ## Objectif
 
