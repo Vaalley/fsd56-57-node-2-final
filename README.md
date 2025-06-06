@@ -114,36 +114,3 @@ structurée. Prenez votre temps pour planifier et développer une solution robus
 et bien conçue.
 
 Bonne chance ! ;)
-
-## packages necessaires :
-
-```json
-"dependencies": {
-    "argon2": "^0.43.0",
-    "cookie-parser": "^1.4.7",
-    "cors": "^2.8.5",
-    "dotenv": "^16.5.0",
-    "drizzle-orm": "^0.44.1",
-    "express": "^5.1.0",
-    "jsonwebtoken": "^9.0.2",
-    "pg": "^8.16.0",
-    "postgres": "^3.4.7",
-    "winston": "^3.17.0",
-    "zod": "^3.25.51"
-  },
-  "devDependencies": {
-    "@types/cookie-parser": "^1.4.8",
-    "@types/cors": "^2.8.18",
-    "@types/express": "^5.0.2",
-    "@types/jsonwebtoken": "^9.0.9",
-    "@types/node": "^22.15.29",
-    "@types/pg": "^8.15.4",
-    "concurrently": "^9.1.2",
-    "drizzle-kit": "^0.31.1",
-    "nodemon": "^3.1.10",
-    "ts-node": "^10.9.2",
-    "ts-node-dev": "^2.0.0",
-    "tsx": "^4.19.4",
-    "typescript": "^5.8.3"
-  }
-```
